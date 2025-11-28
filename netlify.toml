@@ -1,0 +1,42 @@
+# Configuração do Netlify para o jogo
+[build]
+  # Não precisa de build, os arquivos já estão prontos
+  publish = "."
+
+[[redirects]]
+  # Redirecionar raiz para o arquivo HTML
+  from = "/"
+  to = "/DrinkingGame.html"
+  status = 200
+
+[[redirects]]
+  # Redirecionar qualquer caminho sem extensão para o HTML
+  from = "/*"
+  to = "/DrinkingGame.html"
+  status = 200
+
+# Headers para PWA e Service Worker
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+
+[[headers]]
+  for = "/*.wasm"
+  [headers.values]
+    Content-Type = "application/wasm"
+
+[[headers]]
+  for = "/*.js"
+  [headers.values]
+    Content-Type = "application/javascript"
+
+[[headers]]
+  for = "/DrinkingGame.service.worker.js"
+  [headers.values]
+    Content-Type = "application/javascript"
+    Service-Worker-Allowed = "/"
+
