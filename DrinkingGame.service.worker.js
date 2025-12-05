@@ -4,7 +4,7 @@
 // Incrementing CACHE_VERSION will kick off the install event and force
 // previously cached resources to be updated from the network.
 /** @type {string} */
-const CACHE_VERSION = '1764962531|12805715524';
+const CACHE_VERSION = '1764962928|13202265086';
 /** @type {string} */
 const CACHE_PREFIX = 'DrinkingGame-sw-cache-';
 const CACHE_NAME = CACHE_PREFIX + CACHE_VERSION;
